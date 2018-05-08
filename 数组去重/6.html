@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重-7</title>
+</head>
+<body>
+	<script>
+		// 利用es6的set结构
+		function uniq(arr){
+			return Array.from(new Set(arr));
+			// 利用Array.from将set结构转成数组
+		}
+		var arr=[3,1,4,3,6,4,7];
+		console.log(uniq(arr));
+	</script>
+</body>
+</html>

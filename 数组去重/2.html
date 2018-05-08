@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重-2</title>
+</head>
+<body>
+	<script>
+		/*给数组排序后再存到新数组里，只存与新数组中前一个值不同的数据
+		这样会打乱原数组的顺序*/
+		function uniq(arr){
+			arr.sort();
+			var temp=[];
+			for(var i=0;i<arr.length;i++){
+				if(arr[i]!=temp[temp.length-1]){
+					temp.push(arr[i]);
+				}
+			}
+			return temp;
+		}
+		var arr=[3,1,4,3,6,4,7];
+		console.log(uniq(arr));
+	</script>
+	
+</body>
+</html>

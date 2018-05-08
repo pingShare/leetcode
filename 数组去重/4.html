@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>去重-4</title>
+</head>
+<body>
+	<script>
+		/*把数组元素当成是对象的属性，对象的属性不能重复
+		*/
+		function uniq(arr){
+			var obj={};
+			var res=[];
+			for(var i=0;i<arr.length;i++){
+				if(!obj[arr[i]]){
+					obj[arr[i]]=1;
+					res.push(arr[i]);
+				}
+			}
+			return res;
+		}
+		var arr=[3,1,4,3,6,4,7];
+		console.log(uniq(arr));
+	</script>
+</body>
+</html>

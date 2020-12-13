@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>删除排序数组中的重复项</title>
+</head>
+<body>
+    <script>
+        /**
+        * @param {number[]} nums
+        * @return {number}
+        https://leetcode-cn.com/problems/remove-duplicates-from-sorted-array/
+        */
+        var removeDuplicates = function(nums) {
+            //练习代码
+            /* let numTemp = [].concat(nums);
+            let tempLength = numTemp.length;
+            for(let i = 0; i < nums.length - 1; i++) {
+            //     console.log('numTemp[i]:',numTemp[i],'indexof:', numTemp.indexOf(numTemp[i]),'i:', i)
+            //     if (numTemp.indexOf(numTemp[i]) !== i) { //不是第一次出现
+            //         nums.splice(nums.indexOf(numTemp[i]), 1)   //问题：nums的i和temp的i 不一样， 可以参考方法二把i减1再遍历
+            //     }
+            //     console.log('nums:',nums)
+            //     console.log('---')
+            if (nums.indexOf(nums[i]) !== nums.lastIndexOf(nums[i]))
+                nums.splice(nums.indexOf(numTemp[i]), 1)
+            }
+            console.log(nums)
+            return nums.length */
+            
+
+            /* 
+                方法一：设定两个指针, 问题：理解 p1++ 和 nums[p1] = nums[p2] 位置顺序
+                let p1 = 0;
+                let p2 = 0;
+                for(p2; p2 < nums.length; p2++) {
+                    if(nums[p1] !== nums[p2]) {
+                        p1++;
+                        nums[p1] = nums[p2];
+                    }
+                }
+                return p1 + 1
+             */
+
+             /* 方法二   splice之后nums长度变了，再把i回退一个，原来的nums[3]变成了nums[2],需要重新遍历该位置的数据
+            let i = 0;
+            for(i; i < nums.length; i++) {
+                if(nums[i] == nums[i+1]) {
+                    nums.splice(i, 1)
+                    i--;
+                }
+            }
+            return nums.length
+             */
+
+        };
+        removeDuplicates([0,0,1,1,2,2,3,3,4])
+    </script>
+</body>
+</html>

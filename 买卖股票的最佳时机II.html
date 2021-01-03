@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>买卖股票的最佳时机II</title>
+</head>
+<body>
+    
+<script>
+    function aa(days) {
+        var daysLength = days.length;
+        var count = 0;
+        for(var i = 0; i < daysLength; i++) {
+            if (days[i] < days[i+1]) {
+                count += days[i+1] - days[i];
+            }
+        }
+        console.log(count);
+    }
+    var days = [7,1,5,3,6,4];  //每个递增的数之间的差的和
+    aa(days);
+</script>
+</body>
+</html>

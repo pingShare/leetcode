@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转数组</title>
+</head>
+<body>
+    <!-- https://leetcode-cn.com/problems/rotate-array/ 
+        我的方法
+        如果 k > nums.length, k 和 length 取余, nums concat nums 然后从初始index 为k的位置开始截取长度为length的数组
+
+        把右移后超出的部分放到开头 nums.pop() k次
+    -->
+<script>
+    var rotate = function(nums, k) {
+        var i = 0;
+        while(i < k) {
+            nums.unshift(nums.pop())
+            i++
+        }
+        return nums
+    };
+    var nums = [1,2,3,4,5,6,7]
+    var k = 3
+    rotate(nums, k)
+
+
+</script>
+</body>
+</html>

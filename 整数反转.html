@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://leetcode-cn.com/problems/reverse-integer/  TODO: 位运算
+
+var reverse = function(x) {
+    var sign = Math.sign(x)  // -1, 1, 0
+    var reverseNum = Math.abs(x).toString().split('').reverse().join('') * sign
+    if (reverseNum > (Math.pow(2,31)-1) || reverseNum < (-Math.pow(2,31))) {
+        return 0
+    }
+    return reverseNum
+};
+var num = reverse(-123)
+console.log(num)
+    </script>
+</body>
+</html>

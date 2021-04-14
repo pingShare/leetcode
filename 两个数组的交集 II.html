@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>两个数组的交集 II</title>
+</head>
+<body>
+    <script>
+        //https://leetcode-cn.com/problems/intersection-of-two-arrays-ii/
+        /* 
+         双指针
+         或者记录值和对应次数，到第二个数组里去遍历
+        */
+        var intersect = function(nums1, nums2) {
+            nums1.sort((a, b) => a - b)  // 升序排序
+            nums2.sort((a, b) => a - b)
+            let flag1 = 0;
+            let flag2 = 0;
+            var result = []
+            while(flag1 < nums1.length && flag2 < nums1.length){
+                if (nums1[flag1] === nums1[flag2]) {
+                    result.push(nums1[flag1])
+                    flag2 ++
+                    flag1 ++
+                } else if (nums1[flag1] > nums1[flag2]) {
+                    flag2 ++
+                } else if (nums1[flag1] < nums1[flag2]) {
+                    flag1 ++
+                }
+            }
+            console.log(result)
+            return result
+        };
+        intersect([1,2,2,1], [2,2])
+    </script>
+</body>
+</html>

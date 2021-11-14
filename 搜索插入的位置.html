@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://leetcode-cn.com/problems/search-insert-position/
+    /**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+var searchInsert = function(nums, target) {
+    var left = 0, right = nums.length - 1
+    while(left <= right) {
+        var mid = Math.floor((left + right) / 2)
+        var num = nums[mid]
+        if (target < num) {
+            right = mid - 1
+        } else if (target > num) {
+            left = mid + 1
+        } else {
+            return mid
+        }
+    }
+    // 最终是left === right
+    if (numds[left] < target) {
+        return left + 1
+    } else {
+        return left
+    }
+};
+console.log(searchInsert([1,3,5,6], 7))
+    </script>
+</body>
+</html>

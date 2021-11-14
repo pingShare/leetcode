@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // https://leetcode-cn.com/problems/first-bad-version/
+
+// https://leetcode-cn.com/problems/first-bad-version/
+
+/**
+ * Definition for isBadVersion()
+ * 
+ * @param {integer} version number
+ * @return {boolean} whether the version is bad
+ *  */
+    isBadVersion = function(version) {
+        return version > 1
+    };
+
+
+/**
+ * @param {function} isBadVersion()
+ * @return {function}
+ */
+ var solution = function(isBadVersion) {
+    /**
+     * @param {integer} n Total versions
+     * @return {integer} The first bad version
+     */
+    return function(n) {
+        var left = 1, right = n;
+        // debugger
+        var mid = Math.floor((right - left)/2 + left);
+        while (left < right) {
+            if (isBadVersion(mid) === true) {
+                right = mid
+            } else if (isBadVersion(mid) === false) {
+                left = mid + 1
+            }
+            mid = Math.floor((right - left)/2 + left)
+        }
+        return mid
+    };
+};
+var num = 2
+// 2
+var res = solution(isBadVersion)(num)
+console.log(res)
+    </script>
+</body>
+</html>

@@ -9,16 +9,28 @@
 <body>
     <script>
        var twoSum = function(numbers, target) {
-            var mapObj = new Map()
-            numbers.forEach(function(num, index) {
-                mapObj.set(num, index)
-            })
-            for(var i = 0; i<numbers.length; i++) {
-                var rest = target - numbers[i]
-                if (mapObj.has(rest)) {
-                    return [i + 1, mapObj.get(rest) + 1]
+            // var mapObj = new Map()
+            // numbers.forEach(function(num, index) {
+            //     mapObj.set(num, index)
+            // })
+            // for(var i = 0; i<numbers.length; i++) {
+            //     var rest = target - numbers[i]
+            //     if (mapObj.has(rest)) {
+            //         return [i + 1, mapObj.get(rest) + 1]
+            //     }
+            // }
+
+            var left = 0, right = numbers.length - 1;
+            while(left < right) {
+                var sum = numbers[left] + numbers[right]
+                if (sum > target) {
+                    right --;
+                } else if (sum < target) {
+                    left ++;
+                } else {
+                    return [left + 1, right + 1]
                 }
-            }
+            } 
        } 
     </script>
 </body>

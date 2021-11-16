@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var twoSum = function(numbers, target) {
+            var mapObj = new Map()
+            numbers.forEach(function(num, index) {
+                mapObj.set(num, index)
+            })
+            for(var i = 0; i<numbers.length; i++) {
+                var rest = target - numbers[i]
+                if (mapObj.has(rest)) {
+                    return [i + 1, mapObj.get(rest) + 1]
+                }
+            }
+       } 
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * @param {string} s
+         * @return {number}
+         */
+        var lengthOfLongestSubstring = function(s) {
+            var counts = []
+            var low = 0, fast = 1
+            if (s.length === 0) return 0
+            var sArr = s.split('')
+            var len = sArr.length
+            // for (var i = 0; i)
+            while(fast < len) {
+                debugger
+                if (sArr[low] !== sArr[fast]) {
+                    fast ++
+                } else {
+                    low ++
+                    counts.push(fast - low)
+                }
+            }
+            return Math.max(counts)
+        };
+        var params = "abcabcbb"
+        var res = lengthOfLongestSubstring(params)
+        console.log(res)
+    </script>
+</body>
+</html>

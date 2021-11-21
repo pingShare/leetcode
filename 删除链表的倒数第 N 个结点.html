@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * Definition for singly-linked list.
+         * function ListNode(val, next) {
+         *     this.val = (val===undefined ? 0 : val)
+         *     this.next = (next===undefined ? null : next)
+         * }
+         */
+        /**
+         * @param {ListNode} head
+         * @param {number} n
+         * @return {ListNode}
+         */
+        // 方法一 数组遍历
+        var removeNthFromEnd = function(head, n) {
+            var p = head
+            var values = []
+            // 得出链表的长度
+            while(p !== null) {
+                values.push(p)
+                p = p.next
+            }
+            if (values.length === 1 && n === 1) {
+                return head = head.next
+            }
+            if (n === values.length) {
+                head.next = null
+                return values[1]
+            }
+            values[values.length-n-1].next = values[values.length-n].next
+            return values[0]
+        };
+
+        // 方法二 双指针
+        var removeNthFromEnd = function(head, n) {
+            var slow = fast = head 
+            for (var i = 0; i < n; i++) {
+                fast = fast.next // fast比low快n
+            }
+                // 已经走到了最后，n等于length
+            // 现在的fast已经比low快n了
+            if (fast === null) {
+                head = slow.next
+                slow.next = null
+                return head
+            } else {
+                while(fast.next !== null) {
+                    slow = slow.next
+                    fast = fast.next
+                }
+                slow.next = slow.next.next
+                return head
+            }
+        };
+    </script>
+</body>
+</html>
